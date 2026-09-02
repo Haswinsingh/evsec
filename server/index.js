@@ -13,9 +13,16 @@ const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
         origin: "https://evsec-nine.vercel.app",
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
+
+app.use(cors({
+    origin: "https://evsec-nine.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true
+}));
 
 connectDB();
 
@@ -24,6 +31,12 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/sensors', sensorRoutes);
+app.get('/', (req, res) => {
+    res.json({
+        status: 'OK',
+        message: 'EVSECURA backend is running'
+    });
+});
 
 let isChargingSimulated = false;
 let chargingStartTime = null;
