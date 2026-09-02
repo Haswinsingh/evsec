@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "https://evsec-nine.vercel.app/",
+        origin: "https://evsec-nine.vercel.app",
         methods: ["GET", "POST"]
     }
 });
