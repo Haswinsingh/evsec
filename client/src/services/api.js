@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://evsec-sl2j.vercel.app/';
+const API_URL = 'https://evsec-sl2j.vercel.app/api';
 
 const api = axios.create({
   baseURL: API_URL,
