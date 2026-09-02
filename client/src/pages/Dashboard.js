@@ -12,7 +12,7 @@ import {
 import { motion } from "framer-motion";
 import Sidebar from "../components/Sidebar";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://evsec-sl2j.vercel.app");
 
 function Dashboard() {
   const { user } = useContext(AuthContext);
